@@ -16,7 +16,7 @@ let getWeatherData = async (location) => {
     }
 }
 let convertKelvinToFahrenheit = (kelvinTemp) => {
-    return ((kelvinTemp - 273.15) * 9/5 + 32).toFixed(1)
+    return ((kelvinTemp - 273.15) * 9/5 + 32).toFixed(0)
 }
 let processWeatherData = async (promise) => {
     let data = await promise;
@@ -42,7 +42,7 @@ let domController = (() => {
     let updateWeatherReport = (data) => {
         city.textContent = `${data.city}, ${data.country}`
         weather.textContent = data.weather
-        temperature.textContent = data.temperature
+        temperature.textContent = `${data.temperature}°`
         weatherDescription.textContent = data.weatherDescription
     }
     return { clearWeatherReport, updateWeatherReport }
