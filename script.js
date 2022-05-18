@@ -15,10 +15,13 @@ let getWeatherData = async (location) => {
         console.log(error)
     }
 }
+let convertKelvinToFahrenheit = (kelvinTemp) => {
+    return ((kelvinTemp - 273.15) * 9/5 + 32).toFixed(1)
+}
 let processWeatherData = async (promise) => {
     let data = await promise;
     let city =  data.name;
-    let temperature = data.main.temp;
+    let temperature = convertKelvinToFahrenheit(data.main.temp);
     let country = data.sys.country;
     let weather = data.weather[0].main;
     let weatherDescription = data.weather[0].description;
