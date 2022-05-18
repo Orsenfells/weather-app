@@ -24,6 +24,14 @@ let processWeatherData = async (promise) => {
     let weatherDescription = data.weather[0].description;
     return {city, temperature, country, weather, weatherDescription }
 }
+let domController = () => {
+    let city = document.querySelector('.location')
+    let weather = document.querySelector('.weather')
+    let temperature = document.querySelector('.temp')
+    let weatherDescription = document.querySelector('.weather-description')
+    
+
+}
 let handleWeatherDataSearch = async () => {
     let location = searchInput.value
     let response = await getWeatherData(location)
