@@ -1,0 +1,31 @@
+html {
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    background-color: #ebebeb;
+    padding: 0;
+    margin: 0;
+}
+header {
+    display: flex;
+    height: 3.5rem;
+    justify-content: center;
+    align-items: center;
+    background-color: #221f20;
+}
+header >form > input {
+    height: 3rem;
+    font-size: 14px;
+    background-image: url(https://cdn2.hubspot.net/hubfs/4004166/bioticresearch_website_assets/images/search_icon.png);
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-left: 40px;
+    background-color: #fff;
+    border: 1px solid #000;
+    box-shadow: none;
+    -webkit-appearance: none;
+}
