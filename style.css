@@ -25,7 +25,8 @@ header >form > input {
     background-position: left center;
     padding-left: 40px;
     background-color: #fff;
-    border: 1px solid #000;
+    border: 2px solid grey;
+    border-radius: 3px;
     box-shadow: none;
     -webkit-appearance: none;
 }
