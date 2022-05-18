@@ -24,19 +24,32 @@ let processWeatherData = async (promise) => {
     let weatherDescription = data.weather[0].description;
     return {city, temperature, country, weather, weatherDescription }
 }
-let domController = () => {
+let domController = (() => {
     let city = document.querySelector('.location')
     let weather = document.querySelector('.weather')
     let temperature = document.querySelector('.temp')
     let weatherDescription = document.querySelector('.weather-description')
     
+    let clearWeatherReport = () => {
+        city.textContent = '';
+        weather.textContent = ''
+        temperature.textContent = ''
+        weatherDescription.textContent = ''
+    }
+    let updateWeatherReport = (data) => {
+        city.textContent = `${data.city}, ${data.country}`
+        weather.textContent = data.weather
+        temperature.textContent = data.temperature
+        weatherDescription.textContent = data.weatherDescription
+    }
+    return { clearWeatherReport, updateWeatherReport }
 
-}
+})()
 let handleWeatherDataSearch = async () => {
     let location = searchInput.value
     let response = await getWeatherData(location)
     let data = await processWeatherData(response)
-    console.log(data)
+    domController.updateWeatherReport(data)
 }
 form.addEventListener('submit', (e) => {
     e.preventDefault()
